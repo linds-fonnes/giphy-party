@@ -13,9 +13,9 @@ function getSearch() {
         limit: 1,
       },
     });
+    document.getElementById("search").value = "";
     console.log(response);
     addGif(response);
-    document.getElementById("search").value = "";
   });
 }
 
@@ -26,6 +26,7 @@ function addGif(response) {
   container.append(newGif);
 }
 
-document.getElementById("remove").addEventListener("click", function () {
+document.getElementById("remove").addEventListener("click", function (e) {
+  e.preventDefault();
   $("img").remove();
 });
